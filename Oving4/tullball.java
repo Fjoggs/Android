@@ -1,0 +1,4 @@
+class Tullball {
+	TullBall() {
+	}
+}
