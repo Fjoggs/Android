@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
 
 public class Fragment1 extends Fragment {
@@ -28,6 +29,7 @@ public class Fragment1 extends Fragment {
 		View view = inflater.inflate(R.layout.fragment1_layout, container, false);
 		textView = (TextView) view.findViewById(R.id.fragment1_textview);
 		imgView = (ImageView) view.findViewById(R.id.fragment1_large_imageview);
+		imgView.setScaleType(ScaleType.FIT_XY);
 		LocalBroadcastManager.getInstance
 		(getActivity()).registerReceiver(messageReceiver, new IntentFilter("intent.country.index"));
 		return view;

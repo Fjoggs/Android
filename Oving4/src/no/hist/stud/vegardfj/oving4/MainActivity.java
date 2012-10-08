@@ -1,10 +1,12 @@
 package no.hist.stud.vegardfj.oving4;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.view.Menu;
 
-public class MainActivity extends FragmentActivity {
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+
+public class MainActivity extends SherlockFragmentActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -14,16 +16,8 @@ public class MainActivity extends FragmentActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
+		MenuInflater inflater = getSupportMenuInflater();
+		inflater.inflate(R.menu.activity_main, menu);
+		return super.onCreateOptionsMenu(menu);
 	}
-//	@Override
-//	public boolean onOptionsItemSelected(MenuItem item) {
-//		switch (item.getItemId()) {
-//		case android.R.id.home:
-//			NavUtils.navigateUpFromSameTask(this);
-//			return true;
-//		}
-//		return super.onOptionsItemSelected(item);
-//	}
 }
