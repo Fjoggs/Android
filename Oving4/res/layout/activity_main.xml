@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -5,17 +6,19 @@
     android:orientation="vertical" >
 
     <fragment
-        android:id="@+id/fragment1"
+        android:id="@+id/Fragment1"
         android:name="no.hist.stud.vegardfj.oving4.Fragment1"
-        android:layout_weight="2.0" 
-        android:layout_width="wrap_content"
-        android:layout_height="0dp" />
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        tools:layout="@layout/fragment1_layout" />
 
     <fragment
-        android:id="@+id/fragment2"
+        android:id="@+id/Fragment2"
         android:name="no.hist.stud.vegardfj.oving4.Fragment2"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
         android:layout_weight="0.5"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp" />
+        tools:layout="@layout/fragment2_layout" />
 
 </LinearLayout>

@@ -1,12 +1,10 @@
 package no.hist.stud.vegardfj.oving4;
 
 import android.os.Bundle;
-import android.app.Activity;
-import android.support.v4.app.NavUtils;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
-import android.view.MenuItem;
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -19,7 +17,6 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
-
 //	@Override
 //	public boolean onOptionsItemSelected(MenuItem item) {
 //		switch (item.getItemId()) {
