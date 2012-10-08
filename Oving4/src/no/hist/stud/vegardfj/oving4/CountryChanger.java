@@ -6,7 +6,7 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 
-public class MainActivity extends SherlockFragmentActivity {
+public class CountryChanger extends SherlockFragmentActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

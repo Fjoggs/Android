@@ -4,13 +4,13 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-
+		
     <fragment
         android:id="@+id/Fragment1"
         android:name="no.hist.stud.vegardfj.oving4.Fragment1"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.0"
+        android:layout_weight="0.4"
         tools:layout="@layout/fragment1_layout" />
 
     <fragment

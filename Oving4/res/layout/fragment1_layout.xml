@@ -6,16 +6,20 @@
 
     <ImageView
         android:id="@+id/fragment1_large_imageview"
+        android:contentDescription="@string/fragment1_image1_desc"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:src="@android:drawable/ic_dialog_alert" />
-
+
     <TextView
         android:id="@+id/fragment1_textview"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="2" >
+        android:gravity="center"
+        android:layout_weight="0.3"
+        android:text="@string/fragment1_textview1_default_text" >
+
     </TextView>
 
 </LinearLayout>
