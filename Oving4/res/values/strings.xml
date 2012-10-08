@@ -9,5 +9,6 @@
     <string name="fragment1_image1_desc">Country Flag Picture</string>
     <string name="fragment1_textview1_default_text">Description</string>
     <string name="actionbar_title">Countrylist</string>
+    <string name="fragment2_listview_row">Country Selector</string>
 
 </resources>
