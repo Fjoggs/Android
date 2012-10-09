@@ -1,5 +1,7 @@
 package no.hist.stud.vegardfj.oving4;
 
+import com.actionbarsherlock.view.MenuItem;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +23,7 @@ public class Fragment1 extends Fragment {
 	private final int INDEX_OF_NORWAY = 0;
 	private final int INDEX_OF_DENMARK = 1;
 	private final int INDEX_OF_SWEDEN = 2;
+	private int currentIndex = 4;
 	private final String[] countryDesc = {"Norge er bra", "Danmark er dritt", "Sverige er helt ok"};
 	
 	@Override
@@ -51,4 +54,10 @@ public class Fragment1 extends Fragment {
 			
 		}
 	};
+	public int getCurrentIndex(){
+		return currentIndex;
+	}
+	public void setCurrentIndex(int currentIndex){
+		this.currentIndex = currentIndex;
+	}
 }

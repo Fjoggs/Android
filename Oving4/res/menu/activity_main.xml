@@ -11,7 +11,6 @@
     <item
         android:id="@+id/button_previous"
         android:showAsAction="always"
-        android:title="Previous"
-        android:visible="true"/>
+        android:title="Previous"/>
 
 </menu>

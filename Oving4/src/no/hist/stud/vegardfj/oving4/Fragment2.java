@@ -1,5 +1,7 @@
 package no.hist.stud.vegardfj.oving4;
 
+import com.actionbarsherlock.view.MenuItem;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -35,3 +37,42 @@ public class Fragment2 extends Fragment implements OnItemClickListener {
 		LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(intent);
 	}
 }
+
+//public boolean onClickNext(MenuItem item){
+//	if(getCurrentIndex() == 4){
+//		setCurrentIndex(0);
+//		imgView.setImageResource(R.drawable.flag_norway);
+//		textView.setText(countryDesc[currentIndex]);
+//	} else if (getCurrentIndex() == 0){
+//		setCurrentIndex(1);
+//		imgView.setImageResource(R.drawable.flag_denmark);
+//		textView.setText(countryDesc[currentIndex]);
+//	} else if (getCurrentIndex() == 1){
+//		setCurrentIndex(2);
+//		imgView.setImageResource(R.drawable.flag_sweden);
+//		textView.setText(countryDesc[currentIndex]);
+//	} else if (getCurrentIndex() == 2){
+//		setCurrentIndex(0);
+//		imgView.setImageResource(R.drawable.flag_norway);
+//		textView.setText(countryDesc[currentIndex]);
+//	}
+//}
+//public boolean onClickPrevious(MenuItem item){
+//	if(getCurrentIndex() == 4){
+//		setCurrentIndex(2);
+//		imgView.setImageResource(R.drawable.flag_sweden);
+//		textView.setText(countryDesc[currentIndex]);
+//	} else if (getCurrentIndex() == 0){
+//		setCurrentIndex(2);
+//		imgView.setImageResource(R.drawable.flag_sweden);
+//		textView.setText(countryDesc[currentIndex]);
+//	} else if (getCurrentIndex() == 1){
+//		setCurrentIndex(0);
+//		imgView.setImageResource(R.drawable.flag_norway);
+//		textView.setText(countryDesc[currentIndex]);
+//	} else if (getCurrentIndex() == 2){
+//		setCurrentIndex(1);
+//		imgView.setImageResource(R.drawable.flag_denmark);
+//		textView.setText(countryDesc[currentIndex]);
+//	}
+//}
