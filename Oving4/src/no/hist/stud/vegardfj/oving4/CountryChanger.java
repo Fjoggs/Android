@@ -41,6 +41,7 @@ public class CountryChanger extends SherlockFragmentActivity {
 			if (getIndex() == 4) {
 				intent.putExtra("CountryChanger_currentIndex", 0);
 				setIndex(0);
+				Log.d("Indexverdi:", String.valueOf(getIndex()));
 			} else if (getIndex() == 0) {
 				intent.putExtra("CountryChanger_currentIndex", 1);
 				setIndex(1);

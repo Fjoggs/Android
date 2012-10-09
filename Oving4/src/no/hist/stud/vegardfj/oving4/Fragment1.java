@@ -31,11 +31,14 @@ public class Fragment1 extends Fragment {
 		// Inflate the layout for this fragment
 		View view = inflater.inflate(R.layout.fragment1_layout, container,
 				false);
+		IntentFilter intentFilter = new IntentFilter();
+		intentFilter.addAction("CountryChanger.country.index");
+		intentFilter.addAction("Fragment2.country.index");
+		LocalBroadcastManager.getInstance(getActivity()).registerReceiver(
+				messageReceiver, intentFilter);		
 		textView = (TextView) view.findViewById(R.id.fragment1_textview);
 		imgView = (ImageView) view.findViewById(R.id.fragment1_large_imageview);
 		imgView.setScaleType(ScaleType.FIT_XY);
-		LocalBroadcastManager.getInstance(getActivity()).registerReceiver(
-				messageReceiver, new IntentFilter("Fragment2.country.index"));
 		return view;
 	}
 
@@ -43,18 +46,34 @@ public class Fragment1 extends Fragment {
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			// TODO Auto-generated method stub
-			int listIndex = (int) intent.getLongExtra("Fragment2_countryIndex",	0);
-			if (listIndex == INDEX_OF_NORWAY) {
-				imgView.setImageResource(R.drawable.flag_norway);
-				textView.setText(countryDesc[listIndex]);
-			} else if (listIndex == INDEX_OF_DENMARK) {
-				imgView.setImageResource(R.drawable.flag_denmark);
-				textView.setText(countryDesc[listIndex]);
-			} else if (listIndex == INDEX_OF_SWEDEN) {
-				imgView.setImageResource(R.drawable.flag_sweden);
-				textView.setText(countryDesc[listIndex]);
+			if(intent.getAction().equalsIgnoreCase("Fragment2.country.index")){				
+				Log.d("Fragment2", "Er du her?");
+				int listIndex = (int) intent.getLongExtra("Fragment2_countryIndex",	0);
+				if (listIndex == INDEX_OF_NORWAY) {
+					imgView.setImageResource(R.drawable.flag_norway);
+					textView.setText(countryDesc[listIndex]);
+				} else if (listIndex == INDEX_OF_DENMARK) {
+					imgView.setImageResource(R.drawable.flag_denmark);
+					textView.setText(countryDesc[listIndex]);
+				} else if (listIndex == INDEX_OF_SWEDEN) {
+					imgView.setImageResource(R.drawable.flag_sweden);
+					textView.setText(countryDesc[listIndex]);
+				}
+				
+			} else if(intent.getAction().equalsIgnoreCase("CountryChanger.country.index")) {				
+				Log.d("CountryChanger", "Er du her?");
+				int listIndex = intent.getIntExtra("CountryChanger_countryIndex", 0);
+				if (listIndex == INDEX_OF_NORWAY) {
+					imgView.setImageResource(R.drawable.flag_norway);
+					textView.setText(countryDesc[listIndex]);
+				} else if (listIndex == INDEX_OF_DENMARK) {
+					imgView.setImageResource(R.drawable.flag_denmark);
+					textView.setText(countryDesc[listIndex]);
+				} else if (listIndex == INDEX_OF_SWEDEN) {
+					imgView.setImageResource(R.drawable.flag_sweden);
+					textView.setText(countryDesc[listIndex]);
+				}
 			}
-
 		}
 	};
 
