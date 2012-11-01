@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/button_viewPreferences"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Preferences"
+        android:onClick="onClickViewPreferences" />
+
+    <Button
+        android:id="@+id/button_viewAuthors"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="View Authors"
+        android:onClick="onClickViewAuthors" />
+
+    <Button
+        android:id="@+id/button_viewBooks"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="View Books"
+        android:onClick="onClickViewBooks" />
+
+    <TextView
+        android:id="@+id/textView_backgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Backgroundcolor" />
+
+    <fragment
+        android:name="android.app.ListFragment"
+        android:id="@+id/frag1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:layout="@layout/list_layout"/>
+</LinearLayout>
