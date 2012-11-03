@@ -6,8 +6,8 @@
     <string name="title_activity_ta_shansen">TaShansen</string>
     <string name="login_textView_name">Please fill in your username.</string>
     <string name="login_textView_cardnumber">Fill in your Card number.</string>
-    <string name="login_button_logIn">Login</string>
-    <string name="login_button_restart">Restart Application</string>
+    <string name="login_button_send">Send</string>
+    <string name="login_button_tryAgain">Try Again</string>
     <string name="title_activity_login_fragment">LoginFragment</string>
 
 </resources>
