@@ -1,9 +1,11 @@
-package no.hist.itfag.books;
+package no.hist.vegardfj.oving5;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
+import no.hist.itfag.books.R;
 
 import android.app.Activity;
 import android.app.ListFragment;

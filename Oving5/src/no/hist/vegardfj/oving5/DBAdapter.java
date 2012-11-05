@@ -1,4 +1,4 @@
-package no.hist.itfag.books;
+package no.hist.vegardfj.oving5;
 
 import android.content.ContentValues;
 import android.content.Context;
