@@ -4,12 +4,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <fragment
-        android:name="no.hist.vegardfj.oving6.LoginFragment"
+    <EditText
+        android:id="@+id/name_editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout="@layout/activity_login_fragment" />
-    
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/number_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+  
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
