@@ -4,18 +4,17 @@ import java.io.IOException;
 
 import org.apache.http.client.ClientProtocolException;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.View;
 
-public class MainActivity extends FragmentActivity {
-	LoginFragment loginFragment = new LoginFragment();
+public class GameActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_game);
     }
 
     @Override
@@ -24,7 +23,6 @@ public class MainActivity extends FragmentActivity {
         return true;
     }
     
-    public void onClickLogIn(View v) throws ClientProtocolException, IOException {
-    	loginFragment.tryLogIn("Tomas", "123");
+    public void onClickSendAnswer(View v) throws ClientProtocolException, IOException {
     }
 }
