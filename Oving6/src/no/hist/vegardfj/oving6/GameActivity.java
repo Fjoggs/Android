@@ -19,11 +19,14 @@ public class GameActivity extends Activity {
 	final static String TAG = "HttpActivity";
 	final static String urlToServer = "http://tomcat.stud.aitel.hist.no/studtomas/tallspill.jsp";
 	private int tries = 0;
+	private EditText editText_answer;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        editText_answer = (EditText) findViewById(R.id.answer_editText);
+        editText_answer.setText("");
     }
 
     @Override
@@ -34,7 +37,6 @@ public class GameActivity extends Activity {
     
     public void onClickSendAnswer(View v) throws ClientProtocolException, IOException {
     	if(tries < 2) {
-        	EditText nameEditText2 = (EditText) findViewById(R.id.answer_editText);
         	List<BasicNameValuePair> valueList = new ArrayList<BasicNameValuePair>();
             valueList.add(new BasicNameValuePair("kortnummer", nameEditText2.getText().toString()));
         	network.runHttpRequestInThread(HttpWrapperThreaded.HttpRequestType.HTTP_GET, valueList);
