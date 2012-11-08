@@ -15,15 +15,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class HttpActivity extends Activity {
 	private HttpWrapperThreaded network;
 	final static String TAG = "HttpActivity";
-	final static String urlToServer = "http://tomcat.stud.aitel.hist.no/studtomas/tallspill.jsp"; 
+	final static String urlToServer = "http://tomcat.stud.aitel.hist.no/studtomas/tallspill.jsp";
+	private int tries = 0;
+	private TextView textView_info;	
     
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,31 +39,12 @@ public class HttpActivity extends Activity {
 	public void showResponse(String response){
 		Log.i(TAG,"Server responded with: " + response);
 		Toast.makeText(getBaseContext(), "Look in log for response!!!", Toast.LENGTH_LONG).show();
+		textView_info.setText(response);
 	}
     
-    /* Lets make some parameters for the HTTP request */
-    private List<BasicNameValuePair> createRequestValues(){
-    	List<BasicNameValuePair> valueList = new ArrayList<BasicNameValuePair>();
-        valueList.add(new BasicNameValuePair("fornavn","Øystein Marius"));
-        valueList.add(new BasicNameValuePair("etternavn","Knaus"));   
-        return valueList;
-    }
-    
     public boolean onCreateOptionsMenu(Menu meny){
-    	super.onCreateOptionsMenu(meny);//kaller metoden som vi arver, er dog ikke nødvendig
+    	super.onCreateOptionsMenu(meny); 
     	return false;
-    }
-
-    
-    public boolean onOptionsItemSelected(MenuItem item){
-    	if (item.getTitle().equals("Send HTTP_GET"))
-    		network.runHttpRequestInThread(HttpWrapperThreaded.HttpRequestType.HTTP_GET, createRequestValues());
-    	else if (item.getTitle().equals("Send HTTP_POST"))
-            network.runHttpRequestInThread(HttpWrapperThreaded.HttpRequestType.HTTP_POST, createRequestValues());
-    	else 
-    		network.runHttpRequestInThread(HttpWrapperThreaded.HttpRequestType.HTTP_GET_WITH_HEADER_IN_RESPOMSE, createRequestValues());
-    	
-    	return true; //hvorfor true her? Se API-dokumentasjonen!!
     }
     
     public void onClickLogIn(View v) throws ClientProtocolException, IOException {
@@ -72,8 +55,21 @@ public class HttpActivity extends Activity {
         valueList.add(new BasicNameValuePair("kortnummer", nameEditText2.getText().toString()));
         Log.d("ValueList", nameEditText1.getText().toString()+" "+nameEditText2.getText().toString());
     	network.runHttpRequestInThread(HttpWrapperThreaded.HttpRequestType.HTTP_GET, valueList);
-    	Intent myIntent = new Intent(HttpActivity.this, GameActivity.class);
-    	HttpActivity.this.startActivity(myIntent);
+    	setContentView(R.layout.activity_game);
+    }
+    
+    public void onClickSendAnswer(View v) throws ClientProtocolException, IOException {
+    	if(tries < 2) {
+    		EditText editText_answer = (EditText) findViewById(R.id.answer_editText);
+        	List<BasicNameValuePair> valueList = new ArrayList<BasicNameValuePair>();
+        	Log.d(TAG, editText_answer.getText().toString());
+            valueList.add(new BasicNameValuePair("svar", editText_answer.getText().toString()));
+        	network.runHttpRequestInThread(HttpWrapperThreaded.HttpRequestType.HTTP_GET, valueList);
+        	tries++;
+    	} else {
+    		tries = 0;
+    		setContentView(R.layout.activity_login);
+    	}
     }
 
 }

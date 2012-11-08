@@ -25,15 +25,15 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/login_button_logIn"
+            android:id="@+id/game_button_sendAnswer"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="2"
-            android:onClick="onClickLogIn"
+            android:onClick="onClickSendAnswer"
             android:text="@string/login_button_send" />
 
         <Button
-            android:id="@+id/login_button_restartApplication"
+            android:id="@+id/game_button_restartApplication"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="2"

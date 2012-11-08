@@ -28,7 +28,7 @@ import android.util.Log;
 
 public class HttpWrapperThreaded {
 	private HttpClient client = new DefaultHttpClient();//reuse this object to ensure that sessions are working!
-	private HttpActivity activity;
+	private Activity activity;
 	private String urlToServer;
 	private HttpRequestType typeOfRequest;
 	private final String TAG = "HTTPWRAPPER";
@@ -37,7 +37,7 @@ public class HttpWrapperThreaded {
 	    HTTP_GET, HTTP_POST, HTTP_GET_WITH_HEADER_IN_RESPOMSE
 	}
 	
-	public HttpWrapperThreaded(HttpActivity activity, String urlToServer){
+	public HttpWrapperThreaded(Activity activity, String urlToServer){
 		this.activity = activity;
 		this.urlToServer = urlToServer;
 	}
@@ -63,7 +63,11 @@ public class HttpWrapperThreaded {
 		}
 			
 		protected void onPostExecute(String response){
-			activity.showResponse(response);
+			if(activity.getLocalClassName().equalsIgnoreCase("httpactivity")) {
+				((HttpActivity) activity).showResponse(response);
+			} else if(activity.getLocalClassName().equalsIgnoreCase("gameactivity")) {
+				((GameActivity) activity).showResponse(response);
+			}
 		}
 	}/*END THREAD CLASS */
 	
@@ -72,6 +76,7 @@ public class HttpWrapperThreaded {
 	 * */ 
 	public String httpGet(List<BasicNameValuePair> parameterList) throws IOException {
 		String url = urlToServer + "?" + URLEncodedUtils.format(parameterList,null);
+		Log.d("URLen med parameter", url);
 		String responseStr = "";
 		HttpGet request = new HttpGet(url);
 		ResponseHandler<String> responseHandler = new BasicResponseHandler();
