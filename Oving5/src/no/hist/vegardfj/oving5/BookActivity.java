@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import no.hist.itfag.books.R;
-
 import android.app.Activity;
 import android.app.ListFragment;
 import android.content.Intent;
@@ -23,7 +21,6 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class BookActivity extends Activity {
 	private DBAdapter db;
@@ -34,8 +31,9 @@ public class BookActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_book);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-		readFile(R.raw.forfattere);
 		textView = (TextView) findViewById(R.id.textView_backgroundColor);
+		Log.d("Gudene vet: ", Integer.toString(R.raw.forfattere));
+		readFile(R.raw.forfattere);
 	}
 
 	@Override
@@ -125,9 +123,9 @@ public class BookActivity extends Activity {
 			while (line != null) {
 				long dbId;
 				temp = line.split(",\\s*");
-				dbId = db.insert(temp[0], temp[1]);
 				Log.d("Linje 1: ", temp[0]);
 				Log.d("Linje 2: ", temp[1]);
+				dbId = db.insert(temp[0], temp[1]);
 				line = reader.readLine();
 			}
 			reader.close();
@@ -135,8 +133,8 @@ public class BookActivity extends Activity {
 			e.printStackTrace();
 		}
 		// Cursor c = db.getAllBookAuthors();
-		Cursor c = db.getBooksByAuthor("Knut Hamsun");
-		showAuthors(c);
+		 Cursor c = db.getBooksByAuthor("Knut Hamsun");
+		 showAuthors(c);
 	}
 
 	public void showAuthors(Cursor c) {
@@ -145,8 +143,7 @@ public class BookActivity extends Activity {
 		String[] columns = new String[] { c.getColumnName(0),
 				c.getColumnName(1) };
 		int[] to = new int[] { R.id.listLayout_textView1, R.id.listLayout_textView2 };
-		SimpleCursorAdapter sca = new SimpleCursorAdapter(this,
-				R.layout.list_layout, c, columns, to);
+		SimpleCursorAdapter sca = new SimpleCursorAdapter(this,	R.layout.list_layout, c, columns, to);
 		frag.setListAdapter(sca);
 	}
 

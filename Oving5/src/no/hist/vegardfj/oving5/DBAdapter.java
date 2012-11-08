@@ -7,7 +7,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import android.widget.Toast;
 
 public class DBAdapter {
 	static final String KEY_ROWID = "_id";
@@ -57,7 +56,7 @@ public class DBAdapter {
 		@Override
 		public void onCreate(SQLiteDatabase db) {
 			try {
-				db.execSQL(DROP_ALL_TABLES);
+				//db.execSQL(DROP_ALL_TABLES);
 				db.execSQL(DATABASE_CREATE1);
 				db.execSQL(DATABASE_CREATE2);
 				db.execSQL(DATABASE_CREATE3);

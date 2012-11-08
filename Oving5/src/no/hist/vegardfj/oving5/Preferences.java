@@ -1,6 +1,5 @@
 package no.hist.vegardfj.oving5;
 
-import no.hist.itfag.books.R;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
