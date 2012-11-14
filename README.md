@@ -1,4 +1,4 @@
-Oving5
+Android
 ======
 
-Øving 5 - Android HiST 2012
+Tasks for HiSTs class Android.
