@@ -18,6 +18,8 @@ public class Server extends Thread {
 		Socket s = null;
 		PrintWriter out = null;
 		BufferedReader in = null;
+		String data = "";
+		String toClient = "Welcome client..";
 		try {
 			Log.i(TAG, "start server....");
 			ss = new ServerSocket(PORT);
@@ -26,9 +28,15 @@ public class Server extends Thread {
 			Log.v(TAG, "client connected...");
 			out = new PrintWriter(s.getOutputStream(), true);
 			in = new BufferedReader(new InputStreamReader(s.getInputStream()));
-			out.println("Welcome client...");// send text to client
-			String res = in.readLine();// receive text from client
-			Log.i(TAG, "Message from client: " + res);
+            StringBuilder sb = new StringBuilder();
+            out.println(toClient);// send text to client
+            
+            Log.i(TAG, "C: Sent " + toClient);
+            while ((data = in.readLine()) != null) {
+                sb.append(data);
+                Log.i(TAG, "C: Received " + sb.toString());
+            }
+            
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {// close sockets!!
