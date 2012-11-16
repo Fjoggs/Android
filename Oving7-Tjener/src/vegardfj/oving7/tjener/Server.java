@@ -15,7 +15,7 @@ public class Server extends Thread {
 	private static int number1 = 0;
 	private static int number2 = 0;
 	private static int number3 = 0;
-	
+
 	public void run() {
 		ServerSocket ss = null;
 		Socket s = null;
@@ -23,25 +23,31 @@ public class Server extends Thread {
 		DataInputStream in = null;
 		String toClient = "Welcome client..";
 		try {
-			Log.i(TAG, "start server....");
-			ss = new ServerSocket(PORT);
-			Log.i(TAG, "serversocket created, wait for client....");
-			s = ss.accept();
-			Log.v(TAG, "client connected...");
-			out = new DataOutputStream(s.getOutputStream());
-			in = new DataInputStream(new BufferedInputStream(s.getInputStream()));
-            out.writeUTF(toClient);// send text to client
-            out.flush();
-            Log.i(TAG, "C: Sent to client: " + toClient);
-            number1 = in.readInt();
-            number2 = in.readInt();
-            number3 = number1+number2;
-            out.writeInt(number3);
-            out.flush();
-            
-            Log.i(TAG, "C: Recieved: "+number1+"\n");
-            Log.i(TAG, "C: Recieved: "+number2+"\n");
-            Log.i(TAG, "C: Sent to client: "+number3+"\n");
+			while (true) {
+				Log.i(TAG, "start server....");
+				ss = new ServerSocket(PORT);
+				Log.i(TAG, "serversocket created, wait for client....");
+				s = ss.accept();
+				Log.v(TAG, "client connected...");
+				out = new DataOutputStream(s.getOutputStream());
+				in = new DataInputStream(new BufferedInputStream(s.getInputStream()));
+				out.writeUTF(toClient);// send text to client
+				out.flush();
+				Log.i(TAG, "C: Sent to client: " + toClient);
+				number1 = in.readInt();
+				number2 = in.readInt();
+				number3 = number1 + number2;
+				out.writeInt(number3);
+				out.flush();
+				Log.i(TAG, "C: Recieved: " + number1 + "\n");
+				Log.i(TAG, "C: Recieved: " + number2 + "\n");
+				Log.i(TAG, "C: Sent to client: " + number3 + "\n");
+				out.close();
+				in.close();
+				s.close();
+				ss.close();
+			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {// close sockets!!

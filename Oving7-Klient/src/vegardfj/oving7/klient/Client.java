@@ -20,17 +20,10 @@ public class Client extends Thread {
 	private int number2;
 	private int number3;
 	
-    private Handler clientHandler = new Handler(){
-        public void handleMessage(Message msg) {
-            if (msg.what == 0){
-                number1 = msg.getData().getInt("number1");
-                number2 = msg.getData().getInt("number2");
-            }
-        }
-    };
-
-	public Client(Handler handler) {
+	public Client(Handler handler, int number1, int number2) {
 		this.handler = handler;
+		this.number1 = number1;
+		this.number2 = number2;
 		number3 = 0;
 	}
 	
@@ -70,9 +63,5 @@ public class Client extends Thread {
 	
 	public int getNumber3() {
 		return number3;
-	}
-	
-	public Handler getClientHandler() {
-		return clientHandler;
 	}
 }

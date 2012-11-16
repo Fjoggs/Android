@@ -33,17 +33,7 @@ public class MainActivity extends Activity {
     	int number1 = Integer.parseInt(inputNumber1.getText().toString());
     	int number2 = Integer.parseInt(inputNumber2.getText().toString());
     	if(number1 != 0 && number2 != 0) {
-    		Client client = new Client(mainHandler);
-            // prepare a message with touch location data
-            Message messageToThread = new Message();
-            Bundle messageData = new Bundle();
-            messageToThread.what = 0;
-            messageData.putInt("number1", number1);
-            messageData.putInt("number2", number2);
-            messageToThread.setData(messageData);
-            
-            // sending message to Client.java
-            client.getClientHandler().sendMessage(messageToThread);
+    		Client client = new Client(mainHandler, number1, number2);
        		client.start();
     	}   	
     }
