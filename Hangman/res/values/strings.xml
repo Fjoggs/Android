@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Hangman</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="activity_hangman_image_description">Image of how far you\'ve been hanged.</string>
+    <string name="activity_hangman_textview_try_letter">Enter a character here to try your luck!</string>
+    <string name="activity_hangman_button_try_letter">Try character</string>
+    <string name="activity_hangman_textview_score">Your current score!</string>
+    <string name="activity_hangman_textview_score_current">No current score so far.</string>
+    <string name="activity_hangman_textview_word">The word you need to guess will show up here!</string>
+
+</resources>

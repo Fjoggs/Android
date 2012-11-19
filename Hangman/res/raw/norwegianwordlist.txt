@@ -1,0 +1,10 @@
+Kjærlighet, TAG: Følelse
+Hat, TAG: Følelse
+Fotball, TAG: Sport
+Basketball, TAG: Sport
+Lesing, TAG: Verb
+Hopping, TAG: Verb
+Engelsk, TAG: Språk
+Norsk, TAG: Språk
+Trance, TAG: Musikksjanger
+Rock and Roll, TAG: Musikksjanger

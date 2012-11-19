@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HangmanActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/activity_hangman_imageview_progress"
+            android:layout_width="0px"
+            android:layout_height="209dp"
+            android:layout_weight="0.7"
+            android:src="@drawable/ic_launcher" 
+            android:contentDescription="@string/activity_hangman_image_description"/>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/activity_hangman_textview_try_letter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_hangman_textview_try_letter" />
+
+            <EditText
+                android:id="@+id/activity_hangman_edittext_enter_letter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/activity_hangman_button_try_letter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_hangman_button_try_letter"
+                android:onClick="onClickTryLetter" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/activity_hangman_textview_word"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_hangman_textview_word" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ListView
+            android:id="@+id/activity_hangman_listview_wrong_characters"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7" >
+        </ListView>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.3" >
+
+            <TextView
+                android:id="@+id/activity_hangman_textview_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_hangman_textview_score" />
+
+            <TextView
+                android:id="@+id/activity_hangman_textview_score_current"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/activity_hangman_textview_score_current" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,10 @@
+Love, TAG: Emotion
+Hate, TAG: Emotion
+Football, TAG: Sport
+Basketball, TAG: Sport
+Reading, TAG: Verb
+Jumping, TAG: Verb
+English, TAG: Language
+Norwegian, TAG: Language
+Trance, TAG: Music Genre
+Rock and Roll, TAG: Music Genre
