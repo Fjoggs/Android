@@ -2,13 +2,29 @@
 <resources>
 
     <string name="app_name">Hangman</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="menu_settings">Settings</string>
-    <string name="activity_hangman_image_description">Image of how far you\'ve been hanged.</string>
-    <string name="activity_hangman_textview_try_letter">Enter a character here to try your luck!</string>
-    <string name="activity_hangman_button_try_letter">Try character</string>
-    <string name="activity_hangman_textview_score">Your current score!</string>
-    <string name="activity_hangman_textview_score_current">No current score so far.</string>
-    <string name="activity_hangman_textview_word">The word you need to guess will show up here!</string>
+    <string name="menu_quit">Quit</string>
+    <string name="menu_help">How to play!</string>
+    <string name="menu_group">Language</string>
+    <string name="menu_english">English</string>
+    <string name="menu_norwegian">Norwegian</string>
+    <string name="image_description">Image of how far you\'ve been hanged.</string>
+    <string name="textview_try_letter">Enter a character here to try your luck!</string>
+    <string name="button_try_letter">Try character</string>
+    <string name="button_new_word">Try a new word</string>
+    <string name="textview_score">Your current score!</string>
+    <string name="textview_score_current">No current score so far.</string>
+    <string name="textview_word">The word you need to guess will show up here!</string>
+    <string name="textview_wrong_characters">Characters that were wrong will show up here</string>
+    <string name="textview_words_completed">Successful words:</string>
+    <string name="textview_words_failed">Failed words:</string>
+    <string name="no_words">You\'ve run out of words!</string>
+    <string name="activity_help_help">
+        Rules are as followed: You are allowed 10 tries to guess the word that shows up as stars.
+        You enter a single character in the textwindow, and click the button called Try Character.
+        If it is correct, it will show up in the correct place in the word, if wrong it will end up
+        in the wrong character list below the stars. The picture will also update to show long until your man is hanged.
+    </string>
+    <string name="activity_help_return_to_game">Return to game</string>
+    <string name="title_activity_help">HelpActivity</string>
 
 </resources>

@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/activity_help_help"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.9"
+        android:text="@string/activity_help_help"
+        tools:context=".HelpActivity" />
+
+    <Button
+        android:id="@+id/activity_help_return_to_game"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.1"
+        android:text="@string/activity_help_return_to_game"
+        android:onClick="onClickReturnToGame" />
+
+</LinearLayout>

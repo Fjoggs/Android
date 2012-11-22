@@ -2,45 +2,43 @@ package vegardfj.hangman;
 
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Random;
 
 public class WordLogic {
-	private ArrayList<Word> unusedWordList;
-	private ArrayList<Word> usedWordList;
 	private Locale currentLocale;
 	private static final String TAG = "WordLogic";
 	private int wordLength;
+	private boolean lastLetterFound;
+	private ArrayList<Word> unusedWordList;
 	
 	public WordLogic(Locale currentLocale) {
 		this.currentLocale = currentLocale;
+		lastLetterFound = false;
 		unusedWordList = new ArrayList<Word>();
-		usedWordList = new ArrayList<Word>();
 		initiateWordList();
 	}
-	
-	public Word getRandomWord() {
-		Random random = new Random();
-		return unusedWordList.get(random.nextInt(unusedWordList.size()));
-	}
-	
-	
-	public void markWordAsUsed(int id) {
-		usedWordList.add(unusedWordList.get(id));
-		unusedWordList.remove(id);
-		System.out.println(TAG+": Removed "+unusedWordList.get(id).getWord());
-	}
-	
-	public boolean checkForLetter(Word w, String letter) {
+
+	public boolean checkForLetter(Word w, String letter, ArrayList<String> usedCharList) {
+		boolean letterFound = false;
 		String word = w.getWord();
 		for(int i=0;i<word.length();i++) {
 			if(Character.toString(word.charAt(i)).equalsIgnoreCase(letter)) {
-				System.out.println(TAG+": The letter '"+letter+"' was correct.");
-				checkIfLastLetter(w);
-				return true;
+				if(!(usedCharList.contains(letter))) {
+					System.out.println(TAG+": The letter '"+letter+"' was correct.");
+					w.unmaskLetter(i, letter);
+					letterFound = true;
+					lastLetterFound = checkIfLastLetter(w);
+				}
 			}
 		}
-		System.out.println(TAG+": The letter '"+letter+"' was wrong.");
-		return false;
+		return letterFound;
+	}
+
+	public boolean isLastLetterFound() {
+		return lastLetterFound;
+	}
+
+	public void setLastLetterFound(boolean lastLetterFound) {
+		this.lastLetterFound = lastLetterFound;
 	}
 	
 	public ArrayList<Word> getUnusedWordList() {
@@ -51,22 +49,19 @@ public class WordLogic {
 		this.unusedWordList = unusedWordList;
 	}
 
-	public ArrayList<Word> getUsedWordList() {
-		return usedWordList;
-	}
-
-	public void setUsedWordList(ArrayList<Word> usedWordList) {
-		this.usedWordList = usedWordList;
-	}
-	
 	private boolean checkIfLastLetter(Word w) {
 		wordLength = w.getWordLength();
-		if(wordLength==0) {
-			return true;
-		} else {
+		if(wordLength!=0) {
 			wordLength--;
 			w.setWordLength(wordLength);
 			System.out.println(TAG+": Amount of letters left is "+wordLength+".");
+		}
+		if(wordLength==0) {
+			lastLetterFound = true;
+			System.out.println(TAG+": Congratulations, you guessed the right word!");
+			w.remaskLetter();
+			w.setWordLength(w.getWord().length());
+			return true;
 		}
 		return false;
 	}

@@ -1,8 +1,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/menu_settings"
+        android:id="@+id/menu_quit"
         android:orderInCategory="100"
-        android:title="@string/menu_settings"/>
-
+        android:title="@string/menu_quit"/>
+    <item
+        android:id="@+id/menu_help"
+        android:title="@string/menu_help">
+    </item>
+    <item
+        android:id="@+id/menu_english"
+        android:title="@string/menu_english">
+    </item>
+    <item
+        android:id="@+id/menu_norwegian"
+        android:title="@string/menu_norwegian">
+    </item>
 </menu>
